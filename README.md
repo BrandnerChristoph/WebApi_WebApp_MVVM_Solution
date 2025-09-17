@@ -1,1 +1,1 @@
-# WHP-Teufel_SEW
+# Solution zur Wiederholungsprojekt des 4. Jahrgangs
