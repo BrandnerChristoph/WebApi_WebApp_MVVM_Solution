@@ -10,11 +10,12 @@ In der Projektmappe sind drei Projekte enthalten, die gemeinsam ein lauffähiges
 ## Projektstart 
 Bei der Konfiguration des Projektstart ist definiert, dass alle drei Projekt gestartet werden, damit auch die WebApp und das WPF (MVVM) Projekt auf die Web API zugreifen können. 
 Der Starteigenschaften können in den Eigenschaften der Projektmappe hinterlegt werden und sind wie nachstehend angegeben definiert.
+
 <img width="2399" height="1241" alt="image" src="https://github.com/user-attachments/assets/2e15f067-b5d7-4104-9984-1e915818d8e0" />
 
 
 ## Initialisierungsdaten laden
-Um die Applikation beim Start bereits mit Daten in der InMemory Datenbank zu versorgen werden Initialiiserungsdaten aus der Klasse [InitData.cs](https://github.com/BrandnerChristoph/WebApi_WebApp_MVVM_Solution/blob/main/TaskMngmt_WebApi/Data/InitData.cs)
+Um die Applikation (WebAPI) beim Start ([Program.cs](https://github.com/BrandnerChristoph/WebApi_WebApp_MVVM_Solution/blob/main/TaskMngmt_WebApi/Program.cs)) bereits mit Daten in der InMemory Datenbank zu versorgen werden Initialiiserungsdaten aus der Klasse [InitData.cs](https://github.com/BrandnerChristoph/WebApi_WebApp_MVVM_Solution/blob/main/TaskMngmt_WebApi/Data/InitData.cs).
 
 ```csharp
 // add init data
