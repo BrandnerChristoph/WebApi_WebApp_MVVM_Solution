@@ -1,0 +1,100 @@
+﻿<Window x:Class="TaskMngmt_WpfMvvm.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TaskMngmt_WpfMvvm"
+        mc:Ignorable="d"
+        Title="Aufgabenverwaltung" Height="450" Width="800">
+    <DockPanel LastChildFill="True">
+
+        <Grid Margin="10" DockPanel.Dock="Bottom">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <GroupBox Grid.Column="0" Grid.Row="1" Header="Dateneingabe">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    
+
+                    <!-- Name -->
+                    <Label Content="Name:" Grid.Column="0" Grid.Row="1" />
+                    <TextBox
+                        Text="{Binding NewTaskItem.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        Grid.Column="1" Grid.Row="1" />
+
+                    <!-- Beschreibung -->
+                    <Label Content="Description:" Grid.Column="0" Grid.Row="2" />
+                    <TextBox
+                        Text="{Binding NewTaskItem.Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        Grid.Column="1" Grid.Row="2" />
+
+                    <!-- Beschreibung -->
+                    <Label Content="isFinished:" Grid.Column="0" Grid.Row="3" />
+                    <TextBox
+                        Text="{Binding NewTaskItem.IsFinished, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        Grid.Column="1" Grid.Row="3" />
+
+
+                    <!-- OK-Button -->
+                    <Button Grid.Row="5"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        HorizontalAlignment="Right"
+                        Margin="5"
+                        Content="speichern"
+                        Width="100"
+                        Command="{Binding AddCommand}" />
+                </Grid>
+            </GroupBox>
+
+            <GroupBox Grid.Column="1" Grid.Row="0" Header="Daten" Grid.RowSpan="2">
+                <StackPanel>
+                    <Button Grid.Row="5"
+                    Grid.Column="1"
+                    Grid.ColumnSpan="2"
+                    HorizontalAlignment="Right"
+                    Margin="5"
+                    Content="Element löschen"
+                    Width="100"
+                    Command="{Binding DeleteCommand}" />
+
+                    <DataGrid ItemsSource="{Binding TaskItems}" SelectedItem="{Binding SelectedTaskItem}"
+                          AutoGenerateColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Name"
+                                        Binding="{Binding Name, UpdateSourceTrigger=PropertyChanged}" 
+                                        IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Bezeichnung"
+                                        Binding="{Binding Description, UpdateSourceTrigger=PropertyChanged}" 
+                                        IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Erstellung"
+                                        Binding="{Binding CreatedAt, UpdateSourceTrigger=PropertyChanged}"
+                                        IsReadOnly="True" />
+                            <DataGridTextColumn Header="isFinished"
+                                        Binding="{Binding isFinished}"
+                                        IsReadOnly="True" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </StackPanel>
+            </GroupBox>
+        </Grid>
+    </DockPanel>
+</Window>
